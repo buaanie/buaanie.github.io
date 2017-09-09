@@ -3,15 +3,20 @@
 <head>
     <meta charset="utf-8">
     
-    <title>归档 | buaanie&#39;s blog</title>
+    <title>最长公共子序列 | buaanie&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
-<meta property="og:title" content="buaanie&#39;s blog">
-<meta property="og:url" content="https://buaanie.github.io/archives/index.html">
+    <meta name="description" content="常见动态规划算法题目LCS，及其优化方法">
+<meta name="keywords" content="算法,动态规划">
+<meta property="og:type" content="article">
+<meta property="og:title" content="最长公共子序列">
+<meta property="og:url" content="https://buaanie.github.io/2017/09/10/最长公共子序列/index.html">
 <meta property="og:site_name" content="buaanie&#39;s blog">
+<meta property="og:description" content="常见动态规划算法题目LCS，及其优化方法">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-09-09T17:06:39.294Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="buaanie&#39;s blog">
+<meta name="twitter:title" content="最长公共子序列">
+<meta name="twitter:description" content="常见动态规划算法题目LCS，及其优化方法">
     
 
     
@@ -206,25 +211,21 @@
 </aside>
 
             
-            <section id="main"><div class="timeline timeline-wrap">
-    
-            <div class="timeline-row timeline-row-major">
-                <span class="node"><i class="fa fa-calendar"></i></span>
-                <h1 class="title">2017</h1>
-            </div>
+            <section id="main"><article id="post-最长公共子序列" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/09/10/最长公共子序列/">最长公共子序列</a>
+        <h1 class="article-title" itemprop="name">
+            最长公共子序列
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/2017/09/10/最长公共子序列/">
@@ -233,121 +234,138 @@
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/算法笔记/">算法笔记</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/动态规划/">动态规划</a>, <a class="tag-link" href="/tags/算法/">算法</a>
     </div>
 
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+                    </div>
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/08/28/prevent-spiders/">前端与反爬虫</a>
-        </h1>
-    
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p><strong>问题描述</strong><br>对于母串X={x<sub>1</sub>,x<sub>2</sub>,⋯,x<sub>m</sub>}, Y={y<sub>1</sub>,y<sub>2</sub>,⋯,y<sub>n</sub>}, 求LCS与最长公共子串。<br>假设 Z<sub>k</sub>={z<sub>1</sub>,z<sub>2</sub>,⋯,z<sub>k</sub>} 是 X 与 Y 的 LCS， 可以观察到</p>
+<ul>
+<li>如果x<sub>m</sub>=y<sub>n</sub>，则 z<sub>k</sub>=x<sub>m</sub>=y<sub>n</sub>，有 Z<sub>k−1</sub> 是 X<sub>m−1</sub>、Y<sub>n-1</sub> 的 LCS；</li>
+<li><p>如果x<sub>m</sub>≠y<sub>n</sub> ，则 Z<sub>k</sub> 是 X<sub>m</sub> 与 Y<sub>n−1</sub> 的LCS，或者 X<sub>m−1</sub> 与 Y<sub>n</sub> 的 LCS<br>利用动态规划思想，不难写出状态转移方程：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">if X[i]=Y[j]  then LCS(i,j) = LCS(i-1j-1)+1</div><div class="line">              else LCS(i,j) = max(LCS(i-1,j) , LCS(i,j-1))</div></pre></td></tr></table></figure>
+<p>也就很容易有代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"> public static int lcs(String X, String Y) &#123;</div><div class="line">    int lx = X.length();</div><div class="line">    int ly = Y.length();</div><div class="line">    int[][] r = new int[lx+1][ly+1];</div><div class="line">    for (int i = 0; i &lt;= lx; i++) &#123;</div><div class="line">        for( int j = 0; j &lt;= ly; j++) &#123;</div><div class="line">            if(i == 0 || j == 0) &#123;</div><div class="line">                r[i][j] = 0;</div><div class="line">            &#125; else if (X.charAt(i-1) == Y.charAt(j-1)) &#123;</div><div class="line">                r[i][j] = r[i-1][j-1] + 1;</div><div class="line">            &#125; else &#123;</div><div class="line">                r[i][j] = max(r[i - 1][j], r[i][j - 1]);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return c[lx][ly];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>实际上这样带来的空间消耗还是比较大，观察到每次实际只用到了上一行保存的数字（不考虑复原LCS，只考虑计算其长度），可以将m<em>n的数组转为2\</em>n的数组。代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">public static int lcs(String X, String Y) &#123;</div><div class="line">    int lx = X.length();</div><div class="line">    int ly = Y.length();</div><div class="line">    int[][] r = new int[2][ly+1];</div><div class="line">    r[0][0]=0;</div><div class="line">    int k =0;</div><div class="line">    for (int i = 0; i &lt;= lx; i++) &#123;</div><div class="line">        k = 1-k;</div><div class="line">        for( int j = 1; j &lt;= ly; j++) &#123;</div><div class="line">            if(i == 0) &#123;</div><div class="line">                r[k][j] = 0;</div><div class="line">            &#125; else if (X.charAt(i-1) == Y.charAt(j-1)) &#123;</div><div class="line">                r[k][j] = r[1-k][j-1] + 1;</div><div class="line">            &#125; else &#123;</div><div class="line">                r[k][j] = Math.max(r[1-k][j], r[k][j - 1]);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return r[k][ly];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>求最长公共子串与上面类似，转移方程为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">if X[i]=Y[j]  then LCS(i,j) = LCS(i-1j-1)+1</div><div class="line">     else LCS(i,j) = 0</div></pre></td></tr></table></figure></p>
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/08/28/prevent-spiders/">
-            <time datetime="2017-08-28T02:36:00.000Z" itemprop="datePublished">2017-08-28</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/技术/">技术</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/前端/">前端</a>, <a class="tag-link" href="/tags/爬虫/">爬虫</a>, <a class="tag-link" href="/tags/转载/">转载</a>
-    </div>
-
-                </div>
-            </div>
+        
         </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/08/27/新一篇/">新一篇</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/08/27/新一篇/">
-            <time datetime="2017-08-27T15:54:45.000Z" itemprop="datePublished">2017-08-27</time>
-        </a>
-    </div>
+        <footer class="article-footer">
+            <div class="share-container">
 
 
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/随感/">随感</a>
-    </div>
 
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/随感/">随感</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/08/26/hello-world/">Hello World</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/08/26/hello-world/">
-            <time datetime="2017-08-26T01:49:58.573Z" itemprop="datePublished">2017-08-26</time>
-        </a>
-    </div>
-
-
-                    
-                    
-                </div>
-            </div>
-        </div>
-    
 </div>
+
+    <a data-url="https://buaanie.github.io/2017/09/10/最长公共子序列/" data-id="cj7djrgom0000tgbu6qb70lmz" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2017/08/28/prevent-spiders/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">前端与反爬虫</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+
 </section>
             
                 
