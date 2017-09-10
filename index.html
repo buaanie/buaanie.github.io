@@ -249,19 +249,14 @@
         
         <div class="article-entry" itemprop="articleBody">
         
-            
-            <p><strong>问题描述</strong><br>对于母串X={x<sub>1</sub>,x<sub>2</sub>,⋯,x<sub>m</sub>}, Y={y<sub>1</sub>,y<sub>2</sub>,⋯,y<sub>n</sub>}, 求LCS与最长公共子串。<br>假设 Z<sub>k</sub>={z<sub>1</sub>,z<sub>2</sub>,⋯,z<sub>k</sub>} 是 X 与 Y 的 LCS， 可以观察到</p>
+            <p><p><strong>问题描述</strong><br>对于母串X={x<sub>1</sub>,x<sub>2</sub>,⋯,x<sub>m</sub>}, Y={y<sub>1</sub>,y<sub>2</sub>,⋯,y<sub>n</sub>}, 求LCS与最长公共子串。<br>假设 Z<sub>k</sub>={z<sub>1</sub>,z<sub>2</sub>,⋯,z<sub>k</sub>} 是 X 与 Y 的 LCS， 可以观察到</p>
 <ul>
 <li>如果x<sub>m</sub>=y<sub>n</sub>，则 z<sub>k</sub>=x<sub>m</sub>=y<sub>n</sub>，有 Z<sub>k−1</sub> 是 X<sub>m−1</sub>、Y<sub>n-1</sub> 的 LCS；</li>
-<li><p>如果x<sub>m</sub>≠y<sub>n</sub> ，则 Z<sub>k</sub> 是 X<sub>m</sub> 与 Y<sub>n−1</sub> 的LCS，或者 X<sub>m−1</sub> 与 Y<sub>n</sub> 的 LCS<br>利用动态规划思想，不难写出状态转移方程：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">if X[i]=Y[j]  then LCS(i,j) = LCS(i-1j-1)+1</div><div class="line">              else LCS(i,j) = max(LCS(i-1,j) , LCS(i,j-1))</div></pre></td></tr></table></figure>
-<p>也就很容易有代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"> public static int lcs(String X, String Y) &#123;</div><div class="line">    int lx = X.length();</div><div class="line">    int ly = Y.length();</div><div class="line">    int[][] r = new int[lx+1][ly+1];</div><div class="line">    for (int i = 0; i &lt;= lx; i++) &#123;</div><div class="line">        for( int j = 0; j &lt;= ly; j++) &#123;</div><div class="line">            if(i == 0 || j == 0) &#123;</div><div class="line">                r[i][j] = 0;</div><div class="line">            &#125; else if (X.charAt(i-1) == Y.charAt(j-1)) &#123;</div><div class="line">                r[i][j] = r[i-1][j-1] + 1;</div><div class="line">            &#125; else &#123;</div><div class="line">                r[i][j] = max(r[i - 1][j], r[i][j - 1]);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return c[lx][ly];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>实际上这样带来的空间消耗还是比较大，观察到每次实际只用到了上一行保存的数字（不考虑复原LCS，只考虑计算其长度），可以将m*n的数组转为2*n的数组。代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">public static int lcs(String X, String Y) &#123;</div><div class="line">    int lx = X.length();</div><div class="line">    int ly = Y.length();</div><div class="line">    int[][] r = new int[2][ly+1];</div><div class="line">    r[0][0]=0;</div><div class="line">    int k =0;</div><div class="line">    for (int i = 0; i &lt;= lx; i++) &#123;</div><div class="line">        k = 1-k;</div><div class="line">        for( int j = 1; j &lt;= ly; j++) &#123;</div><div class="line">            if(i == 0) &#123;</div><div class="line">                r[k][j] = 0;</div><div class="line">            &#125; else if (X.charAt(i-1) == Y.charAt(j-1)) &#123;</div><div class="line">                r[k][j] = r[1-k][j-1] + 1;</div><div class="line">            &#125; else &#123;</div><div class="line">                r[k][j] = Math.max(r[1-k][j], r[k][j - 1]);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return r[k][ly];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>求最长公共子串与上面类似，转移方程为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">if X[i]=Y[j]  then LCS(i,j) = LCS(i-1j-1)+1</div><div class="line">     else LCS(i,j) = 0</div></pre></td></tr></table></figure></p>
-
+<li>如果x<sub>m</sub>≠y<sub>n</sub> ，则 Z<sub>k</sub> 是 X<sub>m</sub> 与 Y<sub>n−1</sub> 的LCS，或者 X<sub>m−1</sub> 与 Y<sub>n</sub> 的 LCS</li>
+</ul></p>
+            <p class="article-more-link">
+                <a href="/2017/09/10/最长公共子序列/#more">查看更多</a>
+            </p>
         
         </div>
         <footer class="article-footer">
@@ -271,7 +266,7 @@
 
 </div>
 
-    <a data-url="https://buaanie.github.io/2017/09/10/最长公共子序列/" data-id="cj7dkgy9r0005fcbucwfi4a5y" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://buaanie.github.io/2017/09/10/最长公共子序列/" data-id="cj7efi39s00012gbuj42ef4of" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -406,7 +401,7 @@
 
 </div>
 
-    <a data-url="https://buaanie.github.io/2017/08/28/prevent-spiders/" data-id="cj7dkgy9e0001fcbunq3h54pd" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://buaanie.github.io/2017/08/28/prevent-spiders/" data-id="cj7efi3a500052gbuqmqt0nia" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -535,7 +530,7 @@
 
 </div>
 
-    <a data-url="https://buaanie.github.io/2017/08/27/新一篇/" data-id="cj7dkgy970000fcbulopwkt66" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://buaanie.github.io/2017/08/27/新一篇/" data-id="cj7efi39l00002gbuk9vu4mfj" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -656,7 +651,7 @@
 
 </div>
 
-    <a data-url="https://buaanie.github.io/2017/08/26/hello-world/" data-id="cj7dkgy9o0004fcbulzgz2oep" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://buaanie.github.io/2017/08/26/hello-world/" data-id="cj7efi3a100042gbucw5fftsc" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
