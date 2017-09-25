@@ -3,19 +3,22 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Hello World | buaanie&#39;s blog</title>
+    <title>网络复习 | buaanie&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+    <meta name="description" content="面试复习计算机网络">
+<meta name="keywords" content="网络,基础">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://buaanie.github.io/2017/08/26/hello-world/index.html">
+<meta property="og:title" content="网络复习">
+<meta property="og:url" content="https://buaanie.github.io/2017/09/24/网络复习/index.html">
 <meta property="og:site_name" content="buaanie&#39;s blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta property="og:description" content="面试复习计算机网络">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-09-03T16:56:53.757Z">
+<meta property="og:image" content="https://buaanie.github.io/2017/09/24/网络复习/网络.png">
+<meta property="og:updated_time" content="2017-09-25T02:58:38.994Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta name="twitter:title" content="网络复习">
+<meta name="twitter:description" content="面试复习计算机网络">
+<meta name="twitter:image" content="https://buaanie.github.io/2017/09/24/网络复习/网络.png">
     
 
     
@@ -210,7 +213,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-网络复习" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -218,7 +221,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            Hello World
+            网络复习
         </h1>
     
 
@@ -227,14 +230,24 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/08/26/hello-world/">
-            <time datetime="2017-08-26T01:49:58.573Z" itemprop="datePublished">2017-08-26</time>
+        <a href="/2017/09/24/网络复习/">
+            <time datetime="2017-09-24T04:17:00.000Z" itemprop="datePublished">2017-09-24</time>
         </a>
     </div>
 
 
                         
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/网络/">网络</a>
+    </div>
+
                         
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/基础/">基础</a>, <a class="tag-link" href="/tags/网络/">网络</a>
+    </div>
+
                     </div>
                 
             </header>
@@ -243,16 +256,192 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+            <h2 id="体系机构"><a href="#体系机构" class="headerlink" title="体系机构"></a>体系机构</h2><table>
+<thead>
+<tr>
+<th>TCP/IP分层</th>
+<th>功能及协议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>应用层</strong></td>
+<td>传输单位：数据包<br>任务：提供系统与用户接口<br>功能：①文件传输②访问与管理③电子邮件 …<br>协议：FTP、SMTP、POP3、HTTP</td>
+</tr>
+<tr>
+<td><strong>传输层</strong></td>
+<td>传输单位：报文段（TCP）或数据报（UDP）<br>任务：主机中进程间通信<br>功能：①为端到端提供可靠的传输服务②为端到端提供流量控制、差错控制、服务质量管理等服务<br>协议：TCP、UDP</td>
+</tr>
+<tr>
+<td><strong>网络层</strong></td>
+<td>传输单位：数据报<br>硬件：路由器<br>任务：①将传输层传下来的报文段封装成组②选择适当路由，将分组交付给目标主机<br>功能：①为传输层服务②组包和拆包③路由选择④拥塞控制<br>协议：ICMP、ARP、RARP、IP、IGMP</td>
+</tr>
+<tr>
+<td><strong>链路层</strong></td>
+<td>传输单位：帧（网络传输最小单位）<br>硬件：交换机、网桥<br>任务：将网络层IP数据报组装成帧<br>功能：①数据连接的建立、拆除、分离②帧定界和帧同步③差错检测<br>协议：PPP、HDLC、ARQ</td>
+</tr>
+<tr>
+<td><strong>物理层</strong></td>
+<td>传输单位：比特<br>硬件：集线器，中继器（数字信号）、放大器（模拟信号）<br>任务：透明的传输比特流<br>功能：为数据端设备提供数据通路</td>
+</tr>
+</tbody>
+</table>
 <a id="more"></a>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+<p><img src="/2017/09/24/网络复习/网络.png" alt="网络"></p>
+<h2 id="链路层"><a href="#链路层" class="headerlink" title="链路层"></a>链路层</h2><p><strong>功能</strong>：链路管理；帧同步（定界）；差错控制；透明传输；<br><strong>组帧</strong>：帧头+帧尾（明确帧开始和结束位置；字符填充、比特填充 首尾标记，注意MAC帧无需帧结束符）<br><strong>差错控制</strong>：奇偶校验、循环冗余 （注意这里的差错控制指的是无比特差错，但仍可能发生帧丢失、镇重复、帧失序等传输差错，因特网使用的ip协议是无连接的，传输是不可靠的，但是网络设计本来就是由用户主机来负责数据传输可靠性的，具体解释是依靠传输层的TCP协议实现端到端的可靠传输，例如主机B发现传输数据有差错则通知主机A重新发送相关部分数据）<br><strong>流量控制与可靠传输</strong>：</p>
+<ol>
+<li>流量控制：停止-等待；滑动窗口；</li>
+<li>可靠传输：滑动窗口（发送方维持发送窗口，代表已发送待确认或待发送的帧；接收方维持接受窗口，表示可接受的帧序列号范围.只有接收窗口向前滑动时发送窗口才可能向前滑动）；</li>
+<li>停止-等待：发送窗口大小=1，接收窗口大小=1；发送一帧-等待-确认一帧-发送下一帧</li>
+<li>后退N帧：发送窗口&gt;1，接收窗口=1；发送方连续发送n帧-接收方确认前m帧-发送方重发m-n帧；窗口大小W &lt; 2<sup>n&lt; /sup&gt; -1</sup></li>
+<li>选择重传：发送&gt;1，接收&gt;1；传输过程中若中间某帧出错，则接收方暂存其后帧，等待重传该帧，避免全部重传。</li>
+</ol>
+<p><strong>局域网与以太网</strong><br>局域网即小范围内通过传输介质（双绞线、同轴电缆）多台计算机或通信设备组成的互联网络，目前主要是以太网标准。<br><strong>以太网</strong>：采用总线拓扑结构，所有计算机共享一条中线，信息以广播形式传播。采用无连接、不编号、无确认的数据帧传输方式（一般局域网信道质量好）。当数据传输过程中发生碰撞时，提供重传机制。<br><strong>以太网帧</strong>：MAC地址一共48bit（6B，高24厂商代码，低24位网卡序列号）。网卡从网络上收到每一个MAC帧，都先检查帧中MAC地址，匹配则接收该帧。以太网帧可以分为单播帧、组播帧、广播帧。MAC帧最短帧长度为64B，首尾长度为18B，数据部分占46B ~1500B（总线型网络多采用CSMA/CD协议即带冲突检测的载波侦听多路访问协议（先听后发、边听边发、冲突停发，随机重发），协议规定了最短帧长度为64B，小于64B的都是因冲突而异常终止的无效帧）。<br><strong>设备</strong>:</p>
+<ol>
+<li>网桥：多个端口，每个端口连接一个网段的局域网。网桥从一个端口收到一帧，先暂存在缓存中（存储转发），如该帧无错误且目的MAC地址属于另一网段（同一网段则丢弃无需转发），则通过查找转发表将该帧从相应端口发出。</li>
+<li>透明网桥：利用生成树算法，自动生成没有环路的转发路由。转发路由格式：源MAC地址-进入端口-时间戳。</li>
+<li>交换机：多端口网桥，具备自动寻址及交换功能（存储转发或直通），可以隔离冲突域。（e.g. 送信，集线器送给所有人，自行判断是否接收，交换机会学习记录收信人地址）。</li>
+<li>网桥一般连接局域网网段，而交换机每个端口一般直接与主机相连。</li>
+</ol>
+<h2 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h2><p><strong>功能</strong>：①异构网络互连②路由与转发③拥塞控制</p>
+<ol>
+<li>互连中继：物理层：中继器或集线器；链路层：网桥或交换机；网络层：路由器；网络层以上：网关。</li>
+<li>路由与转发：路由选择：根据路由选择算法确定分组报文盖被传输到哪条路线，生成路由表。</li>
+<li>分组转发：根据路由表将数据报从合适路由器端口转发。</li>
+<li>拥塞控制：拥塞检测、报告与调整</li>
+</ol>
+<p><strong>路由算法</strong></p>
+<ol>
+<li>静态路由（手动配置）、动态路由（距离向量路由算法、链路状态算法）</li>
+<li>距离路由算法：所有节点定期将整个路由表传送给所有与之直接相邻的节点，路由表中包括每条路径的目的节点及路径跳数，RIP算法。</li>
+<li>链路状态算法：每个节点测试定期测试与之直连的节点间的链路，定期将链路信息广播给所有其他节点，其他节点接收所有节点的链路状态信息更新自己的网络拓扑视野图，利用Dijkstra算法计算路由。</li>
+<li>路由选择协议分层次：域内路由选择（内部网关协议IGP：RIP、OSPF），域间路由选择（外部网关协议EGP：BGP）</li>
+</ol>
+<p><strong>IPv4</strong></p>
+<ol>
+<li>ip数据报首部是60B，其中21~60B四可选字段和填充，前20B是固定长度，首部长度一定为4B的整数倍。首部重要字段：总长度，占2B16位，即ip数据报最长64KB（MAC帧最长1500B，超出要对数据报分片）；标志：MF：标记该分片是否是最后一个分片。DF：是否允许传输。片偏移：以8B为单位的偏移量。</li>
+<li>e.g.原数据报总长度3820B，分片长度不超过1420B，则分成3片：1420+1420+1020（1400+1400+1000），MF（1,1,0），DF（0,0,0），片偏移（0，1400/8=175,350）</li>
+<li>ipv4地址，长度为32位<ol>
+<li>A类网络地址，前八位为网络号，且第一位为0。1~126</li>
+<li>B类网络地址，前16位为网络号，且前两位位10。128.1~191.255</li>
+<li>C类网络地址，前24位为网络号，且前三位为110。192.0.1~223.255.255</li>
+</ol>
+</li>
+<li>NAT，有些机构不需要连接互联网，只需内部主机通信，避免浪费全球IP资源，规定以下地址为内部专用地址（可重用地址）<ol>
+<li>10.0.0.0 ~ 10.255.255.255 （相当于一个A类网络）</li>
+<li>172.16.0.0 ~ 172.31.255.255 （相当于一个B类网络）</li>
+<li>192.168.0.0 · 192.168.255.255（相当于一个C类网络）</li>
+<li>NAT协议（NAT路由器至少有一个可用的全球IP）将专用网内部IP地址转化为有效全球IP</li>
+</ol>
+</li>
+<li>子网划分与子网掩码<ol>
+<li>ip地址={&lt;网络号&gt;,&lt;子网号&gt;,&lt;主机号&gt;}</li>
+<li>ip地址与指望艳母按位与，得到网络地址。</li>
+<li>路由器从分组头部得到目的ip地址，然后①计算与路由器直接相连网络的子网掩码^该ip地址，查看是否与该网络的地址相匹配，匹配则交付，②如果有自定目的ip的特定路由则交给指明的下一跳路由，③对路由表每一行计算网络是否匹配。有默认路由则交给默认路由，无则报告转发分组出错。</li>
+</ol>
+</li>
+<li>CIDR 超网，ip={&lt;网络前缀&gt;,&lt;主机号&gt;} / 网络前缀长</li>
+</ol>
+<p><strong>协议</strong></p>
+<ol>
+<li>ARP： ip地址转为MAC地址，每个主机都动态维护AR高速缓存表。ARP请求分组是广播，但是ARP响应是单播。<ol>
+<li>当源主机（或路由器）向本局域网的目的主机发送ip分组时，先在本机ARP缓存中查找，有则直接将对应硬件地址填入MAC帧目的mac地址；没有则在局域网内广播，获取目的主机ARP响应，更新ARP缓存。</li>
+<li>如果源主机与目的主机不在同一局域网，则需要通过arp找到位于本局域网上的某个路由器硬件地址，将arp请求发给该路由器让该路由器转发给下一个网络（的路由器），注意目的主机发送ARP响应报文时实际是由目的主机所在局域网路由器发送，即目的MAC地址是路由器的地址。</li>
+</ol>
+</li>
+<li>DHCP：DHCP服务器为主机动态分配IP，使用UDP报文传输。</li>
+<li>ICMP：检测到数据报错误的路由器或主机通过ICMP控制消息告诉发送数据的主机错误类型。（ICMP差错报文：不可达、源站抑制、超时、参数错误、改变路由；ICMP询问报文：回送请求和回答报文、时间戳请求和回答报文、掩码地址请求和回答报文、路由器询问和通告报文）。ping是应用层直接使用网络层ICMP的例子。</li>
+</ol>
+<p><strong>设备</strong><br>路由器：路由选择、分组转发</p>
+<ol>
+<li>路由选择算法得到网络拓扑结构，得到路由表；由路由表得到转发表</li>
+<li>路由器处理过程：线路上接收分组，①处理物理层数据（比特流）；②处理链路层数据（去掉帧头帧尾），得到IP数据报；③进行网络层数据处理，如果接收的分组时路由器间交换路由信息分组（RIP、OSPF等），则进行路由选择处理；如果得到的是数据分组，则按照分组首部中的目的地址查找转发表，通过交换结构将分组传递至合适的输出端口。     ④从交换结构传过来的分组先进行缓存，链路层模块给分组加上链路层头部和尾部，再交给物理层发送到外部路线。</li>
+</ol>
+<h2 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h2><p><strong>功能</strong><br>网络层提供了ip到ip的传输服务，而且是不可靠的，所以提出传输层。为主机提供应用程序间（进程间）的通信，即端到端通信，且可以提供可靠服务。</p>
+<ol>
+<li>提供进程间的逻辑通信服务（无实际物理连接）</li>
+<li>差错检验（对收到的报文首部和数据部分都进行差错检验，而网络层只检查IP数据报首部）</li>
+<li>提供无连接（UDP）或面向连接（TCP，握手，流量控制，拥塞控制）的服务</li>
+<li>复用和分用</li>
+</ol>
+<p><strong>寻址与端口</strong><br>链路层按照MAC地址寻址，网络层按IP寻址，传输层按照端口号寻址。端口可以看做应用层进程的标志。本机端口可以用16位端口号（共65536个端口号）来表示。</p>
+<ol>
+<li>熟知端口（保留端口）：0~1023</li>
+<li>登记端口：1024~40151</li>
+<li>客户端端口（临时端口）：49152~65535<br><strong>套接字</strong> = (主机IP地址，端口号) ，通过ip地址和端口号唯一确定一个连接，即套接字Socket。</li>
+</ol>
+<p><strong>TCP和UDP</strong><br>udp：传输前无需连接，达到后也无需确认；不可靠；报文头部短（8B），开销小，时延小（网络拥塞不会导致源主机发送速率降低）。<br>tcp：面向连接，不能广播或多播；可靠交付；报文头部长，开销大。</p>
+<p>UDP：</p>
+<ol>
+<li>首部：源端口、目的端口、长度、校验和（伪首部、首部和数据，伪首部不发送，只是计算校验和时候用到）。</li>
+</ol>
+<p>TCP：</p>
+<ol>
+<li>首部：源端口、目的端口、序号seq（报文段序号，以字节为单位，TCP面向字节流）、确认号ack（确认号为N+1，表示前N字节已收到）、数据偏移（首部长度）…、<strong>确认比特ACK（当ACK=1时字段有效，一旦TCP连接建立，所有报文该字段都为1）</strong>、复位比特RST（置1表示需要重新连接）、<strong>同步比特SYN（置1表示是一个请求连接或者接受连接报文，此时报文不能携带数据）</strong>、终止比特FIN（置1表示该报文发送端数据发送完毕）、窗口字段（表示接收方还有多少缓存空间，控制对方发送数据量）、校验和（首部和数据）</li>
+<li><p>三次握手：TCP连接的主机端口叫套接字，每一个TCP连接={socket1,socket2}={(ip1:port1),(ip2,port2)}</p>
+<ol>
+<li>客户机A -&gt; 服务器B，发送SYN报文，<strong>SYN=1</strong>，选择<strong>seq=x</strong>，表示传输数据时第一个字节序号为x；</li>
+<li>B收到A的数据报，同意发送确认报文，同样<strong>SYN=1,ACK=1,ack=x+1</strong>，自己选择序号<strong>seq=y</strong>；</li>
+<li>A收到确认，也发送确认。<strong>ACK=1,seq=x+1,ack=y+1</strong>；A通知上层应用进程连接建立，B收到A的确认也通知上层进程连接建立。此后SYN比特置0，报文可以携带数据。</li>
+</ol>
+</li>
+<li><p>四次握手：传输结束后，任一方可以请求释放连接</p>
+<ol>
+<li>主机A应用进程先发出连接释放报文等待B确认，FIN比特置1，<strong>FIN=1,seq=u</strong>，注意此时A不能发送数据，但服务器B仍能向A发送数据。</li>
+<li>B确认A的释放请求。<strong>ACK=1,ack=u+1,seq=v</strong>，通知上层应用要断开连接。此时，B不再接收A的数据，但是B仍能发送，A也能接收。</li>
+<li>如果B没有要向A发送的数据，通知上层应用释放连接。<strong>FIN=1,ACK=1,seq=w,ack=u+1</strong>；注意这里的w&gt;v表示B仍然发送了w-v字节数据。</li>
+<li>A收到B的连接释放请求，也进行确认。<strong>ACK=1,ack=w+1,seq=u+1</strong>；</li>
+<li>经过2MSL（最长报文寿命）后TCP连接真正释放（防止A的确认报文丢失，B没有正常关闭）。</li>
+</ol>
+</li>
+</ol>
+<p><strong>TCP可靠传输</strong></p>
+<ol>
+<li>数据编号及确认 + 重传机制（在平均往返时延RTT时间内没有收到确认报文，则对报文进行重传）</li>
+<li>流量控制：滑动窗口协议；维持计时器，计时器周期探测接收窗口大小。</li>
+<li>拥塞控制：慢开始算法（加倍），拥塞避免算法（超过阈值，每次加1，拥塞阈值变为拥塞窗口大小一半），快重传算法（三次重复确认立即重传），快恢复算法（拥塞时发送窗口大小从新阈值开始）</li>
+<li>作用：每个IP数据报独立选择路由，在到达目的主机时可能失序；数据报中的TTL可能中途置0，报文丢弃，需要重传；路由器来不及处理大量数据报，导致部分数据被丢弃，需要重传。</li>
+</ol>
+<h2 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h2><table>
+<thead>
+<tr>
+<th>应用层协议</th>
+<th>传输层协议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DNS</td>
+<td>TCP/UDP</td>
+</tr>
+<tr>
+<td>FTP</td>
+<td>TCP</td>
+</tr>
+<tr>
+<td>RIP(路由选择)</td>
+<td>UDP</td>
+</tr>
+<tr>
+<td>SMTP</td>
+<td>TCP</td>
+</tr>
+<tr>
+<td>HTTP</td>
+<td>TCP</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>DNS系统：根域名服务器，顶级域名服务器，权限域名服务器，本地域名服务器。DNS协议是应用层协议，主机向本地域名服务器采用递归查询方式查找域名的IP地址（主机询问本地域名服务器，找不到则本地域名服务器向根服务器查询，根服务器告诉本地域名服务器在哪一个顶级域名服务器上查询，顶级上找不到就告诉本地域名服务器到哪个权限域名服务器上查询；也有本地域名服务器递归查询方式）。</li>
+<li>FTP协议，使用TCP协议进行可靠传输，端口通常为20/21（会有临时端口）。</li>
+<li>SMTP、POP3 邮件协议。</li>
+<li><strong>HTTP</strong><ol>
+<li>在客户端（如浏览器）和WWW服务器之间进行交互的协议。是面向事务的应用层协议，基于TCP提供可靠传输，服务器默认监听80端口（即在80端口上监听连接请求）。</li>
+<li>分为请求报文、响应报文</li>
+</ol>
+</li>
+</ol>
 
         
         </div>
@@ -263,7 +452,7 @@
 
 </div>
 
-    <a data-url="https://buaanie.github.io/2017/08/26/hello-world/" data-id="cj7zl6vfs000bnobut46rh9r0" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://buaanie.github.io/2017/09/24/网络复习/" data-id="cj7zl6vfj0006nobu3up0ebp8" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -338,15 +527,11 @@
         
 <nav id="article-nav">
     
-        <a href="/2017/08/27/新一篇/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    新一篇
-                
-            </div>
-        </a>
     
+        <a href="/2017/09/10/最长公共子序列/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">最长公共子序列</div>
+        </a>
     
 </nav>
 

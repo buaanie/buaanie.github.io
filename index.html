@@ -154,11 +154,11 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                5
+                6
                 <span>文章</span>
             </div>
             <div class="article-info-block">
-                8
+                10
                 <span>标签</span>
             </div>
         </div>
@@ -207,6 +207,166 @@
 
             
             <section id="main">
+    <article id="post-网络复习" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/09/24/网络复习/">网络复习</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/09/24/网络复习/">
+            <time datetime="2017-09-24T04:17:00.000Z" itemprop="datePublished">2017-09-24</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/网络/">网络</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/基础/">基础</a>, <a class="tag-link" href="/tags/网络/">网络</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p><h2 id="体系机构"><a href="#体系机构" class="headerlink" title="体系机构"></a>体系机构</h2><table>
+<thead>
+<tr>
+<th>TCP/IP分层</th>
+<th>功能及协议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>应用层</strong></td>
+<td>传输单位：数据包<br>任务：提供系统与用户接口<br>功能：①文件传输②访问与管理③电子邮件 …<br>协议：FTP、SMTP、POP3、HTTP</td>
+</tr>
+<tr>
+<td><strong>传输层</strong></td>
+<td>传输单位：报文段（TCP）或数据报（UDP）<br>任务：主机中进程间通信<br>功能：①为端到端提供可靠的传输服务②为端到端提供流量控制、差错控制、服务质量管理等服务<br>协议：TCP、UDP</td>
+</tr>
+<tr>
+<td><strong>网络层</strong></td>
+<td>传输单位：数据报<br>硬件：路由器<br>任务：①将传输层传下来的报文段封装成组②选择适当路由，将分组交付给目标主机<br>功能：①为传输层服务②组包和拆包③路由选择④拥塞控制<br>协议：ICMP、ARP、RARP、IP、IGMP</td>
+</tr>
+<tr>
+<td><strong>链路层</strong></td>
+<td>传输单位：帧（网络传输最小单位）<br>硬件：交换机、网桥<br>任务：将网络层IP数据报组装成帧<br>功能：①数据连接的建立、拆除、分离②帧定界和帧同步③差错检测<br>协议：PPP、HDLC、ARQ</td>
+</tr>
+<tr>
+<td><strong>物理层</strong></td>
+<td>传输单位：比特<br>硬件：集线器，中继器（数字信号）、放大器（模拟信号）<br>任务：透明的传输比特流<br>功能：为数据端设备提供数据通路</td>
+</tr>
+</tbody>
+</table></p>
+            <p class="article-more-link">
+                <a href="/2017/09/24/网络复习/#more">查看更多</a>
+            </p>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://buaanie.github.io/2017/09/24/网络复习/" data-id="cj7zl6vfj0006nobu3up0ebp8" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-最长公共子序列" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -266,7 +426,7 @@
 
 </div>
 
-    <a data-url="https://buaanie.github.io/2017/09/10/最长公共子序列/" data-id="cj7ozyvqg0002usbu7dg83v4a" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://buaanie.github.io/2017/09/10/最长公共子序列/" data-id="cj7zl6vfg0005nobuytib19cy" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -397,7 +557,7 @@
 
 </div>
 
-    <a data-url="https://buaanie.github.io/2017/09/02/排序算法/" data-id="cj7ozyvq60001usbu5uaxtj9q" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://buaanie.github.io/2017/09/02/排序算法/" data-id="cj7zl6vfz000enobuqwydc1ui" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -532,7 +692,7 @@
 
 </div>
 
-    <a data-url="https://buaanie.github.io/2017/08/28/prevent-spiders/" data-id="cj7ozyvr50005usbuvpcfbvvh" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://buaanie.github.io/2017/08/28/prevent-spiders/" data-id="cj7zl6vfq0009nobuz8b8ltn7" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -661,7 +821,7 @@
 
 </div>
 
-    <a data-url="https://buaanie.github.io/2017/08/27/新一篇/" data-id="cj7ozyvrf0006usbung54oviw" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://buaanie.github.io/2017/08/27/新一篇/" data-id="cj7zl6vey0001nobu4qsb0409" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -782,7 +942,7 @@
 
 </div>
 
-    <a data-url="https://buaanie.github.io/2017/08/26/hello-world/" data-id="cj7ozyvpv0000usbuaz4fv1jl" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://buaanie.github.io/2017/08/26/hello-world/" data-id="cj7zl6vfs000bnobut46rh9r0" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -871,6 +1031,25 @@
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2017/09/24/网络复习/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/网络/">网络</a></p>
+                            <p class="item-title"><a href="/2017/09/24/网络复习/" class="title">网络复习</a></p>
+                            <p class="item-date"><time datetime="2017-09-24T04:17:00.000Z" itemprop="datePublished">2017-09-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2017/09/10/最长公共子序列/" class="thumbnail">
     
     
@@ -944,25 +1123,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/08/26/hello-world/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2017/08/26/hello-world/" class="title">Hello World</a></p>
-                            <p class="item-date"><time datetime="2017-08-26T01:49:58.573Z" itemprop="datePublished">2017-08-26</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -972,7 +1132,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法笔记/">算法笔记</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随感/">随感</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法笔记/">算法笔记</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/网络/">网络</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随感/">随感</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -981,7 +1141,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">3</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -990,7 +1150,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动态规划/">动态规划</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/排序/">排序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/源码/">源码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬虫/">爬虫</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/转载/">转载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随感/">随感</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动态规划/">动态规划</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础/">基础</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/排序/">排序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/源码/">源码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬虫/">爬虫</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/转载/">转载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随感/">随感</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -999,7 +1159,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/动态规划/" style="font-size: 10px;">动态规划</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/源码/" style="font-size: 10px;">源码</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/转载/" style="font-size: 10px;">转载</a> <a href="/tags/随感/" style="font-size: 10px;">随感</a>
+            <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/动态规划/" style="font-size: 10px;">动态规划</a> <a href="/tags/基础/" style="font-size: 10px;">基础</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/源码/" style="font-size: 10px;">源码</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/网络/" style="font-size: 10px;">网络</a> <a href="/tags/转载/" style="font-size: 10px;">转载</a> <a href="/tags/随感/" style="font-size: 10px;">随感</a>
         </div>
     </div>
 
