@@ -14,7 +14,7 @@
 <meta property="og:description" content="面试复习计算机网络">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://buaanie.github.io/2017/09/24/网络复习/网络.png">
-<meta property="og:updated_time" content="2017-09-25T02:58:38.994Z">
+<meta property="og:updated_time" content="2017-09-27T01:49:44.054Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网络复习">
 <meta name="twitter:description" content="面试复习计算机网络">
@@ -161,11 +161,11 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                6
+                7
                 <span>文章</span>
             </div>
             <div class="article-info-block">
-                10
+                11
                 <span>标签</span>
             </div>
         </div>
@@ -293,7 +293,7 @@
 <li>流量控制：停止-等待；滑动窗口；</li>
 <li>可靠传输：滑动窗口（发送方维持发送窗口，代表已发送待确认或待发送的帧；接收方维持接受窗口，表示可接受的帧序列号范围.只有接收窗口向前滑动时发送窗口才可能向前滑动）；</li>
 <li>停止-等待：发送窗口大小=1，接收窗口大小=1；发送一帧-等待-确认一帧-发送下一帧</li>
-<li>后退N帧：发送窗口&gt;1，接收窗口=1；发送方连续发送n帧-接收方确认前m帧-发送方重发m-n帧；窗口大小W &lt; 2<sup>n&lt; /sup&gt; -1</sup></li>
+<li>后退N帧：发送窗口&gt;1，接收窗口=1；发送方连续发送n帧-接收方确认前m帧-发送方重发m-n帧；窗口大小W &lt; 2<sup>n</sup> -1</li>
 <li>选择重传：发送&gt;1，接收&gt;1；传输过程中若中间某帧出错，则接收方暂存其后帧，等待重传该帧，避免全部重传。</li>
 </ol>
 <p><strong>局域网与以太网</strong><br>局域网即小范围内通过传输介质（双绞线、同轴电缆）多台计算机或通信设备组成的互联网络，目前主要是以太网标准。<br><strong>以太网</strong>：采用总线拓扑结构，所有计算机共享一条中线，信息以广播形式传播。采用无连接、不编号、无确认的数据帧传输方式（一般局域网信道质量好）。当数据传输过程中发生碰撞时，提供重传机制。<br><strong>以太网帧</strong>：MAC地址一共48bit（6B，高24厂商代码，低24位网卡序列号）。网卡从网络上收到每一个MAC帧，都先检查帧中MAC地址，匹配则接收该帧。以太网帧可以分为单播帧、组播帧、广播帧。MAC帧最短帧长度为64B，首尾长度为18B，数据部分占46B ~1500B（总线型网络多采用CSMA/CD协议即带冲突检测的载波侦听多路访问协议（先听后发、边听边发、冲突停发，随机重发），协议规定了最短帧长度为64B，小于64B的都是因冲突而异常终止的无效帧）。<br><strong>设备</strong>:</p>
@@ -366,9 +366,9 @@
 </ol>
 <p><strong>寻址与端口</strong><br>链路层按照MAC地址寻址，网络层按IP寻址，传输层按照端口号寻址。端口可以看做应用层进程的标志。本机端口可以用16位端口号（共65536个端口号）来表示。</p>
 <ol>
-<li>熟知端口（保留端口）：0~1023</li>
+<li>熟知端口（保留端口）：0 ~ 1023</li>
 <li>登记端口：1024~40151</li>
-<li>客户端端口（临时端口）：49152~65535<br><strong>套接字</strong> = (主机IP地址，端口号) ，通过ip地址和端口号唯一确定一个连接，即套接字Socket。</li>
+<li>客户端端口（临时端口）：49152 ~  65535<br><strong>套接字</strong> = (主机IP地址，端口号) ，通过ip地址和端口号唯一确定一个连接，即套接字Socket。</li>
 </ol>
 <p><strong>TCP和UDP</strong><br>udp：传输前无需连接，达到后也无需确认；不可靠；报文头部短（8B），开销小，时延小（网络拥塞不会导致源主机发送速率降低）。<br>tcp：面向连接，不能广播或多播；可靠交付；报文头部长，开销大。</p>
 <p>UDP：</p>
@@ -391,7 +391,7 @@
 <li>B确认A的释放请求。<strong>ACK=1,ack=u+1,seq=v</strong>，通知上层应用要断开连接。此时，B不再接收A的数据，但是B仍能发送，A也能接收。</li>
 <li>如果B没有要向A发送的数据，通知上层应用释放连接。<strong>FIN=1,ACK=1,seq=w,ack=u+1</strong>；注意这里的w&gt;v表示B仍然发送了w-v字节数据。</li>
 <li>A收到B的连接释放请求，也进行确认。<strong>ACK=1,ack=w+1,seq=u+1</strong>；</li>
-<li>经过2MSL（最长报文寿命）后TCP连接真正释放（防止A的确认报文丢失，B没有正常关闭）。</li>
+<li>经过time_wait时间，（2MSL（最长报文寿命））后TCP连接真正释放（防止A的确认报文丢失，B没有正常关闭）。</li>
 </ol>
 </li>
 </ol>
@@ -439,8 +439,21 @@
 <li><strong>HTTP</strong><ol>
 <li>在客户端（如浏览器）和WWW服务器之间进行交互的协议。是面向事务的应用层协议，基于TCP提供可靠传输，服务器默认监听80端口（即在80端口上监听连接请求）。</li>
 <li>分为请求报文、响应报文</li>
+<li>状态码：1xx:临时响应；2xx:响应请求成功；4xx:请求出错；5xx:服务器内部错误；</li>
 </ol>
 </li>
+</ol>
+<p>参考链接：</p>
+<ol>
+<li><a href="http://www.cnblogs.com/Zhang-wj/p/5907534.html" target="_blank" rel="external">OSI分层协议总结</a></li>
+<li><a href="http://blog.csdn.net/fly_zhyu/article/details/74230914" target="_blank" rel="external">网络编程详解：分层、协议与实现</a></li>
+<li><a href="http://blog.csdn.net/cws1214/article/details/8078629" target="_blank" rel="external">tcp/ip 协议族</a></li>
+<li><a href="https://my.oschina.net/liting/blog/402795?p=1" target="_blank" rel="external">网络协议总结</a></li>
+<li><a href="http://www.cnblogs.com/DeasonGuan/articles/Hanami.html" target="_blank" rel="external">http响应状态码</a></li>
+<li><a href="http://web.jobbole.com/84479/" target="_blank" rel="external">http缓存及CND</a></li>
+<li><a href="http://web.jobbole.com/84479/" target="_blank" rel="external">http代理原理及实现</a></li>
+<li><a href="http://www.cnblogs.com/jinbiaof/p/6844293.html" target="_blank" rel="external">访问网站域名过程</a></li>
+<li><a href="http://www.guokr.com/post/114121/" target="_blank" rel="external">https原理及过程</a></li>
 </ol>
 
         
@@ -452,7 +465,7 @@
 
 </div>
 
-    <a data-url="https://buaanie.github.io/2017/09/24/网络复习/" data-id="cj7zl6vfj0006nobu3up0ebp8" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://buaanie.github.io/2017/09/24/网络复习/" data-id="cj8acszdb0006bobulyx7j6eq" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -527,6 +540,15 @@
         
 <nav id="article-nav">
     
+        <a href="/2017/10/02/背包问题/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    背包问题
+                
+            </div>
+        </a>
+    
     
         <a href="/2017/09/10/最长公共子序列/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
@@ -553,6 +575,25 @@
         <h3 class="widget-title">最新文章</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/10/02/背包问题/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/算法笔记/">算法笔记</a></p>
+                            <p class="item-title"><a href="/2017/10/02/背包问题/" class="title">背包问题</a></p>
+                            <p class="item-date"><time datetime="2017-10-02T13:30:08.000Z" itemprop="datePublished">2017-10-02</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -630,25 +671,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/08/27/新一篇/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/随感/">随感</a></p>
-                            <p class="item-title"><a href="/2017/08/27/新一篇/" class="title">新一篇</a></p>
-                            <p class="item-date"><time datetime="2017-08-27T15:54:45.000Z" itemprop="datePublished">2017-08-27</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -658,7 +680,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法笔记/">算法笔记</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/网络/">网络</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随感/">随感</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法笔记/">算法笔记</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/网络/">网络</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随感/">随感</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -667,7 +689,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">3</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -676,7 +698,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动态规划/">动态规划</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础/">基础</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/排序/">排序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/源码/">源码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬虫/">爬虫</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/转载/">转载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随感/">随感</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动态规划/">动态规划</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础/">基础</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/排序/">排序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/源码/">源码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬虫/">爬虫</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/背包问题/">背包问题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/转载/">转载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随感/">随感</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -685,7 +707,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/动态规划/" style="font-size: 10px;">动态规划</a> <a href="/tags/基础/" style="font-size: 10px;">基础</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/源码/" style="font-size: 10px;">源码</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/网络/" style="font-size: 10px;">网络</a> <a href="/tags/转载/" style="font-size: 10px;">转载</a> <a href="/tags/随感/" style="font-size: 10px;">随感</a>
+            <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/动态规划/" style="font-size: 15px;">动态规划</a> <a href="/tags/基础/" style="font-size: 10px;">基础</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/源码/" style="font-size: 10px;">源码</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/网络/" style="font-size: 10px;">网络</a> <a href="/tags/背包问题/" style="font-size: 10px;">背包问题</a> <a href="/tags/转载/" style="font-size: 10px;">转载</a> <a href="/tags/随感/" style="font-size: 10px;">随感</a>
         </div>
     </div>
 
