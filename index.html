@@ -250,7 +250,7 @@
         <div class="article-entry" itemprop="articleBody">
         
             <p><p>笔试时候遇到的动态规划问题比较多，背包问题比较有代表性，所以自己手动全部实现一遍，加深转移方程的推导与实现的记忆。下面依次介绍01背包（每种物品只有1个）、完全背包（每种物品有无限个）、多重背包（每种物品各有限制）</p>
-<h2 id="01背包"><a href="#01背包" class="headerlink" title="01背包"></a>01背包</h2><p>背包容量为cubage，物品种类为cate种，物品i花费为cost[i]，价值为value[i]<br>对于二维数组dp[i][j]表示容积为j放入前i种物品的最优解（价值最大值）<br>//代码中注释都说的比较详细，就不展开了，中途会插入一些参考链接<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">public static void main(String[] args) &#123;</div><div class="line">	Scanner sc = new Scanner(System.in);</div><div class="line">	int cubage = sc.nextInt();</div><div class="line">	int cate = sc.nextInt(),i=1;</div><div class="line">	int[] value = new int[cate+1];</div><div class="line">	int[] cost = new int[cate+1];</div><div class="line">	while(i&lt;=cate)&#123;</div><div class="line">		cost[i]=sc.nextInt();</div><div class="line">		value[i]=sc.nextInt();</div><div class="line">		i++;</div><div class="line">	&#125;</div><div class="line">	parse01Normal(value,cost,cubage,cate);</div></pre></td></tr></table></figure></p></p>
+<h2 id="01背包"><a href="#01背包" class="headerlink" title="01背包"></a>01背包</h2><p>背包容量为cubage，物品种类为cate种，物品i花费为cost[i]，价值为value[i]<br>对于二维数组dp[i][j]表示容积为j放入前i种物品的最优解（价值最大值）<br>//代码中注释都说的比较详细，就不展开了，中途会插入一些参考链接<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">public static void main(String[] args) &#123;</div><div class="line">	Scanner sc = new Scanner(System.in);</div><div class="line">	int cubage = sc.nextInt();</div><div class="line">	int cate = sc.nextInt(),i=1;</div><div class="line">	int[] value = new int[cate+1];</div><div class="line">	int[] cost = new int[cate+1];</div><div class="line">	while(i&lt;=cate)&#123;</div><div class="line">		cost[i]=sc.nextInt();</div><div class="line">		value[i]=sc.nextInt();</div><div class="line">		i++;</div><div class="line">	&#125;</div><div class="line">	parse01Normal(value,cost,cubage,cate);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p></p>
             <p class="article-more-link">
                 <a href="/2017/10/02/背包问题/#more">查看更多</a>
             </p>
@@ -263,7 +263,7 @@
 
 </div>
 
-    <a data-url="https://buaanie.github.io/2017/10/02/背包问题/" data-id="cj8acszdj0009bobuyxbrzf8y" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://buaanie.github.io/2017/10/02/背包问题/" data-id="cj8ad4se80005pgbufx75cary" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -423,7 +423,7 @@
 
 </div>
 
-    <a data-url="https://buaanie.github.io/2017/09/24/网络复习/" data-id="cj8acszdb0006bobulyx7j6eq" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://buaanie.github.io/2017/09/24/网络复习/" data-id="cj8ad4sd60001pgbu3bofxzya" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -558,7 +558,7 @@
 
 </div>
 
-    <a data-url="https://buaanie.github.io/2017/09/10/最长公共子序列/" data-id="cj8acszd50005bobuog99za5l" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://buaanie.github.io/2017/09/10/最长公共子序列/" data-id="cj8ad4sdv0004pgbuh9q0dsa8" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -689,7 +689,7 @@
 
 </div>
 
-    <a data-url="https://buaanie.github.io/2017/09/02/排序算法/" data-id="cj8acsze0000gbobuz0xa2x6z" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://buaanie.github.io/2017/09/02/排序算法/" data-id="cj8ad4sea0006pgbuyurf79w8" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -824,7 +824,7 @@
 
 </div>
 
-    <a data-url="https://buaanie.github.io/2017/08/28/prevent-spiders/" data-id="cj8acszdx000ebobufdlzuhko" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://buaanie.github.io/2017/08/28/prevent-spiders/" data-id="cj8ad4seg000cpgbu6dpl03k6" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -953,7 +953,7 @@
 
 </div>
 
-    <a data-url="https://buaanie.github.io/2017/08/27/新一篇/" data-id="cj8acszd00004bobua6bg2dif" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://buaanie.github.io/2017/08/27/新一篇/" data-id="cj8ad4scx0000pgbutyr8shfx" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1074,7 +1074,7 @@
 
 </div>
 
-    <a data-url="https://buaanie.github.io/2017/08/26/hello-world/" data-id="cj8acszdu000bbobu2aee8qom" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://buaanie.github.io/2017/08/26/hello-world/" data-id="cj8ad4see000apgbuqbvfsmlh" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
